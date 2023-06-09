@@ -54,8 +54,12 @@ app.get('/getFootwearCategoryList', (req, res) => {
     footWearCategoryController.getFootwearCategoryList(req, res)
 });
 
-app.get('/getShopCategoryList', (req, res) => { //todo
-    userCategoryController.getShopCategoryList(req, res)
+app.get('/getShopCategoryListInNLevels', (req, res) => {
+    userCategoryController.getShopCategoryListInNLevels(req, res)
 });
+
+app.get('/getShopCategoryListIntreeStructure', (req, res) => {
+    userCategoryController.getShopCategoryListIntreeStructure(req, res)
+}); 
 
 module.exports = app;

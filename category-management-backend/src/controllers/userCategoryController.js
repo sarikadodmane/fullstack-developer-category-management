@@ -39,9 +39,19 @@ function controller() {
         }
     };
 
-    this.getShopCategoryList = async function (req, res) { //expected op
+    this.getShopCategoryListInNLevels = async function (req, res) { //expected op
         try {
-            const result = await service.getShopCategoryList()
+            const result = await service.getShopCategoryListInNLevels()
+            res.status(200).send(result);
+        } catch (error) {
+            logger.error(error)
+            res.status(500).json({ error: "fetching record list has failed" });
+        }
+    };
+
+    this.getShopCategoryListIntreeStructure = async function (req, res) { //expected op
+        try {
+            const result = await service.getShopCategoryListIntreeStructure()
             res.status(200).send(result);
         } catch (error) {
             logger.error(error)
