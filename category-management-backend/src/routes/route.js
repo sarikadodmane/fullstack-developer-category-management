@@ -58,8 +58,8 @@ app.get('/getShopCategoryListInNLevels', (req, res) => {
     userCategoryController.getShopCategoryListInNLevels(req, res)
 });
 
-app.get('/getShopCategoryListIntreeStructure', (req, res) => {
-    userCategoryController.getShopCategoryListIntreeStructure(req, res)
+app.get('/getShopCategoryListInTreeStructure', (req, res) => {
+    userCategoryController.getShopCategoryListInTreeStructure(req, res)
 }); 
 
 module.exports = app;

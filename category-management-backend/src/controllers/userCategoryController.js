@@ -39,7 +39,7 @@ function controller() {
         }
     };
 
-    this.getShopCategoryListInNLevels = async function (req, res) { //expected op
+    this.getShopCategoryListInNLevels = async function (req, res) {
         try {
             const result = await service.getShopCategoryListInNLevels()
             res.status(200).send(result);
@@ -49,9 +49,9 @@ function controller() {
         }
     };
 
-    this.getShopCategoryListIntreeStructure = async function (req, res) { //expected op
+    this.getShopCategoryListInTreeStructure = async function (req, res) {
         try {
-            const result = await service.getShopCategoryListIntreeStructure()
+            const result = await service.getShopCategoryListInTreeStructure()
             res.status(200).send(result);
         } catch (error) {
             logger.error(error)

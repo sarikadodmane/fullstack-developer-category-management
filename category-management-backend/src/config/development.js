@@ -1,10 +1,15 @@
+const port = process.env.PORT;
+const dbHost = process.env.DB_HOST;
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const database = process.env.DATABASE;
+
 module.exports = {
     mysqldbConnection: {
-        host: '127.0.0.1',
-        user: 'root',
-        password: 'Root12!@',
-        port: '3306',
-        database:'shophouse'
+        host: dbHost,
+        user: dbUser,
+        password: dbPassword,
+        port: port,
+        database:database
     }
 }
-

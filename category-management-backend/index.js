@@ -1,6 +1,7 @@
 const express = require('express');
 const pino = require('pino');
 const fs = require('fs');
+require('dotenv').config();
 const logFileStream = fs.createWriteStream('./app.log');
 
 global.logger = pino({},logFileStream);

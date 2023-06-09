@@ -58,7 +58,7 @@ exports.getShopCategoryListInNLevels = async function () {
     }
 };
 
-exports.getShopCategoryListIntreeStructure = async function () {
+exports.getShopCategoryListInTreeStructure = async function () {
     try {
         const query1 = `SET @level := 0;`
         const query2 = `SELECT CONCAT(REPEAT(' ', level - 1), category_name) AS category_tree
