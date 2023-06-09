@@ -24,20 +24,30 @@ function controller() {
             }
 
         } catch (error) {
-            console.error(error)
-            res.status(500).json({ error: "Record creation has failed" });
+            logger.error(error)
+            res.status(500).json({ error: "record creation has failed" });
         }
-    }
+    };
 
     this.getUserCategory = async function (req, res) {
         try {
             const result = await service.getUserCategory()
             res.status(200).send(result);
         } catch (error) {
-            console.error(error)
-            res.status(500).json({ error: "Record creation has failed" });
+            logger.error(error)
+            res.status(500).json({ error: "fetching record list has failed" });
         }
-    }
+    };
+
+    this.getShopCategoryList = async function (req, res) { //expected op
+        try {
+            const result = await service.getShopCategoryList()
+            res.status(200).send(result);
+        } catch (error) {
+            logger.error(error)
+            res.status(500).json({ error: "fetching record list has failed" });
+        }
+    };
 
 }
 

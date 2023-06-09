@@ -3,9 +3,8 @@ const Sequelize = require('sequelize');
 require('mysql2');
 
 module.exports = (config) => {
-  console.log("Loading connection pool.", JSON.stringify(config))
+  logger.info("Loading connection pool.", JSON.stringify(config))
   InitMysql(config)
-  console.log("Loaded connection pool.")
 }
 
 function InitMysql(config) {
@@ -25,9 +24,9 @@ function InitMysql(config) {
 
   global.db.authenticate()
     .then(function (err) {
-      console.log('Connected to mysql db.');
+      logger.info('Connected to mysql db.');
     })
     .catch(function (err) {
-      console.log('Unable to connect to the mysql db:', err);
+      logger.error('Unable to connect to the mysql db:', err);
     });
 }

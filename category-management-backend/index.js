@@ -1,5 +1,9 @@
 const express = require('express');
-var bodyParser = require('body-parser');
+const pino = require('pino');
+const fs = require('fs');
+const logFileStream = fs.createWriteStream('./app.log');
+
+global.logger = pino({},logFileStream);
 
 const app = express();
 app.use(express.json());
@@ -10,9 +14,7 @@ const PORT = 8080;
 
 const route = require('./src/routes/route')
 app.use('/', route);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.listen(PORT, () => {
-    console.log(`server running on the port ${PORT}`);
+    logger.info(`server running on the port ${PORT}`);
 });

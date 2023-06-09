@@ -1,34 +1,44 @@
-const userCategory = require('../models/userCategoryModel');
+const UserCategory = require('../models/userCategoryModel');
 
-exports.createUserCategory = async function ({category,alias}) {
+exports.createUserCategory = async function ({ category, alias }) {
     try {
-            await userCategory.create({
-                category: category,
-                alias: alias
-            });
-            return { message: 'user category has been created' }
+        await UserCategory.create({
+            category,
+            alias,
+            status: 1
+        });
+        return { message: 'user category has been created' }
     } catch (error) {
-        console.error(error)
+        logger.error(error)
         throw error;
     }
 };
 
-exports.findUserCategory = async function ({alias}) {
+exports.findUserCategory = async function ({ alias }) {
     try {
-        return userCategory.findOne({
-            where: { alias }
+        return UserCategory.findOne({
+            where: { alias, status: 1 }
         })
     } catch (error) {
-        console.error(error)
+        logger.error(error)
         throw error;
     }
 };
 
 exports.getUserCategory = async function () {
     try {
-        return userCategory.findAll()
+        return UserCategory.findAll()
     } catch (error) {
-        console.error(error)
+        logger.error(error)
+        throw error;
+    }
+};
+
+exports.getShopCategoryList = async function () {
+    try {
+        return UserCategory.findAll() //todo
+    } catch (error) {
+        logger.error(error)
         throw error;
     }
 };

@@ -54,4 +54,8 @@ app.get('/getFootwearCategoryList', (req, res) => {
     footWearCategoryController.getFootwearCategoryList(req, res)
 });
 
+app.get('/getShopCategoryList', (req, res) => { //todo
+    userCategoryController.getShopCategoryList(req, res)
+});
+
 module.exports = app;
