@@ -4,7 +4,7 @@ const fs = require('fs');
 require('dotenv').config();
 const logFileStream = fs.createWriteStream('./app.log');
 
-global.logger = pino({},logFileStream);
+global.logger = pino({level: 'debug'},logFileStream);
 
 const app = express();
 app.use(express.json());

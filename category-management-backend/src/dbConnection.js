@@ -8,7 +8,7 @@ module.exports = (config) => {
 }
 
 function InitMysql(config) {
-
+  
   global.db = new Sequelize(config.mysqldbConnection.database, config.mysqldbConnection.user, config.mysqldbConnection.password, {
     host: config.mysqldbConnection.host,
     dialect: 'mysql',
@@ -23,7 +23,7 @@ function InitMysql(config) {
   });
 
   global.db.authenticate()
-    .then(function (err) {
+    .then(function (data) {
       logger.info('Connected to mysql db.');
     })
     .catch(function (err) {

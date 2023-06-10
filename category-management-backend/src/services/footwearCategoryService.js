@@ -50,7 +50,6 @@ exports.updateFootwearCategory = async function (id, data) {
 exports.deleteFootwearCategory = async function (id) {
     try {
         return Footwear.destroy(
-            //     {status: 0, last_modified: new Date()}
             { where: { id, status: 1 } });
     } catch (error) {
         logger.error(error)

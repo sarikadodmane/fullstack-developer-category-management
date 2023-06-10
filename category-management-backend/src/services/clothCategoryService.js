@@ -22,7 +22,6 @@ exports.findClothCategory = async function (category, user_category) {
             where: { category, user_category, status: 1 }
         });
     } catch (error) {
-        ß
         logger.error(error)
         throw error;
     }

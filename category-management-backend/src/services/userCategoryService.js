@@ -50,7 +50,6 @@ exports.getShopCategoryListInNLevels = async function () {
             JOIN (SELECT @level := 0) AS l
           ) AS temp
         ) AS p ON c.parent_id = p.category_id`;
-
           return global.db.query(query);
     } catch (error) {
         logger.error(error)
@@ -60,7 +59,7 @@ exports.getShopCategoryListInNLevels = async function () {
 
 exports.getShopCategoryListInTreeStructure = async function () {
     try {
-        const query1 = `SET @level := 0;`
+        const query1 = `SET @level := 0;`;
         const query2 = `SELECT CONCAT(REPEAT(' ', level - 1), category_name) AS category_tree
         FROM (
           SELECT category_id, category_name, parent_id, @level := @level + 1 AS level
